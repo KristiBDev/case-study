@@ -129,6 +129,7 @@ const CaseStudy = () => {
               formatting, making downstream processing-for instance, HTML
               conversion-both simpler and more reliable.
             </p>
+            
             <p>
               Additionally, in cases where large-scale or repetitive testing was
               necessary, the <strong>Faker</strong> library stepped in to
@@ -139,33 +140,41 @@ const CaseStudy = () => {
             </p>
 
             <h3>Conversion to HTML Static Pages</h3>
-
+        
             <p>
-              After retrieving messages, the next priority was storing them in a
-              format that would stand the test of time. HTML was chosen because
-              it remains the most universally compatible format for displaying
-              rich text. Each message was transformed into a compact segment
-              with its own preview area. A small script inserted pagination
-              controls, ensuring that users could navigate pages of emails
-              without being overwhelmed by a massive single file.
+            After retrieving messages, the next priority was storing them in a format that would stand the test of time. HTML was chosen because it remains the most universally compatible format for displaying rich text, ensuring longevity without reliance on proprietary formats or external dependencies. By keeping everything within standard HTML, CSS, and vanilla JavaScript, the system avoids compatibility issues that might arise with evolving frameworks or libraries.
+
+            Each message was transformed into a compact segment with its own preview area. No external UI libraries or complex styling frameworks were used—just minimal, functional design to ensure the emails remain accessible across any browser or device, even decades from now. A small script inserted pagination controls, allowing users to navigate pages of emails seamlessly without being overwhelmed by a single massive file.
+            
+           
             </p>
             <p>
-              The conversion pipeline essentially involved taking each parsed
-              email dictionary, extracting fields like <em>subject</em> and{' '}
-              <em>body</em>, and embedding them into static HTML. Additional
-              JavaScript was injected into the page to power toggles, so users
-              could expand and collapse content at will. This not only kept the
-              UI clean but also improved performance by only loading resources
-              when needed.
+            The conversion pipeline involved extracting key fields like subject and body from each parsed email dictionary and embedding them into static HTML. JavaScript was injected sparingly, only to power necessary interactions such as expanding and collapsing messages. 
             </p>
 
             <h3>Testing and Comparing Compression Algorithms</h3>
-            <img src="compression_time.png" alt="User Survey" 
-                  style={{ width: "90%",
-                  border: "2px solid #ddd", 
-                  borderRadius: "8px",
-                  boxShadow: "4px 4px 10px rgba(0, 0, 0, 0.2)"
-                 }} />
+            <div style={{ display: "flex", justifyContent: "center", gap: "20px" }}>
+                <img 
+                  src="compression_time.png" 
+                  alt="Image 1" 
+                  style={{ width: "50%",
+                    border: "2px solid #ddd", 
+                    borderRadius: "8px",
+                    boxShadow: "4px 4px 10px rgba(0, 0, 0, 0.2)"}}
+                />
+       
+                <img 
+                  src="compression_numsentence_zlib.png" 
+                  alt="Image 2" 
+                  style={{ width: "50%",
+                    border: "2px solid #ddd", 
+                    borderRadius: "8px",
+                    boxShadow: "4px 4px 10px rgba(0, 0, 0, 0.2)"}}
+                />
+              </div>
+           
+
+           
             <p>
               Before finalizing a compression strategy, I ran extensive tests on
               <strong> zlib</strong>, <strong>Brotli</strong>, and{' '}
@@ -246,9 +255,10 @@ const CaseStudy = () => {
 
             <h3>Additional Features and Proofs of Concept</h3>
             <p>
-              Although compression and HTML conversion form the technical core,
-              two extra proofs of concept underline the system’s potential:
-            </p>
+              Although the compression algorithm and HTML conversion while maintaining a very simple UI was the primary goal,
+              two extra proof of concept features were added for future consideration: </p>
+           
+            
             <ul>
               <li>
                 <strong>Search Functionality:</strong> The creation of a 
@@ -263,19 +273,25 @@ const CaseStudy = () => {
                 token-based authentication or even multi-factor support.
               </li>
             </ul>
-
+            
             <h3>Summary of the Building Process</h3>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%" }}>
+            <img 
+            src="uidesign.png" 
+            alt="UI Design" 
+            style={{ width: "50%",
+              border: "2px solid #ddd", 
+              borderRadius: "8px",
+              boxShadow: "4px 4px 10px rgba(0, 0, 0, 0.2)",
+              margin: "10px"}}
+          />
+            <div >
             <p>
-              In essence, this design and implementation journey spotlighted the 
-              synergy between robust back-end workflows and flexible front-end 
-              components. By leveraging Python’s capabilities for collection, 
-              parsing, and compression, then coupling them with lightweight 
-              JavaScript for decompression and navigation, the system achieves 
-              offline independence, long-term data retention, and user-friendly 
-              interactions. Throughout development, feedback loops-both from 
-              direct user input and systematic testing-proved indispensable, 
-              guiding core decisions that balanced performance with simplicity.
+            This project was all about finding the right balance between a strong back-end and a simple, flexible front-end. Python handled the heavy lifting—collecting, parsing, and compressing emails; while JavaScript made it easy to decompress and navigate the data. The result is  system that works completely offline, keeps emails accessible for the long haul, and stays user-friendly.
             </p>
+            <p>Throughout the process, user feedback and testing played a huge role. The UI elements were kept as simple as possible to ensure the system will remain easy to use. Insights from real users and performance tests helped shape key decisions, making sure the system remained both efficient and easy to use.    </p>
+            </div>
+            </div>
           </section>
           
 

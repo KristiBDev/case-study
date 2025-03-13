@@ -146,7 +146,7 @@
 /* Analysis */
 .analysis {
   display: block;
-  width: 90%;
+  width: 1000px;
   max-width: 1100px;
   margin: 2rem auto;
   padding: 1.5rem;
@@ -225,56 +225,58 @@
 .navContainer a:hover {
   background-color: #a5e2dc;
 }
-
 /* Responsive Design */
 @media (max-width: 768px) {
+  /* Ensure the main container adjusts */
   .caseStudyContainer {
-    margin-left: 0;
-    padding: 1rem;
+    margin-left: 0 !important;
+    padding: 1rem !important;
   }
 
   .header h1 {
-    font-size: 2rem;
+    font-size: 2rem !important;
   }
 
-  /* Make sections full width on smaller screens */
+  /* Make all divs stack vertically */
+  div {
+    display: block !important; /* Forces all flex or inline-block divs to stack */
+    width: 100% !important; /* Ensures full width */
+  }
+
+  /* Make specific sections take full width */
   .section,
   .analysis,
   .conclusions {
-    display: block;
-    width: 100%;
+    display: block !important;
+    width: 100% !important;
   }
 
   /* Move navbar to the top on mobile */
   .navContainer {
-    position: static;
-    width: 100%;
-    margin-bottom: 1rem;
-    border: 2px solid #a3bffa;
+    position: static !important;
+    width: 100% !important;
+    margin-bottom: 1rem !important;
+    border: 2px solid #a3bffa !important;
   }
 
   .navContainer h4 {
-    text-align: left;
-    margin-left: 0.5rem;
+    text-align: left !important;
+    margin-left: 0.5rem !important;
   }
 
-  .section h2 {
-    font-size: 1.5rem;
+  /* Ensure images resize properly */
+  img {
+    width: 100% !important; /* Ensures images scale to fit */
+    max-width: 100% !important;
+    height: auto !important;
   }
 
-  .section h3 {
-    font-size: 1.2rem;
+  /* Override any horizontal flex containers */
+  .imageContainer,
+  .tableContainer,
+  .flex-row {
+    display: block !important; /* Forces vertical layout */
+    width: 100% !important;
+    text-align: center !important;
   }
-}
-
-/* Typography and spacing */
-p,
-li {
-  line-height: 1.7;
-  color: #4a5568;
-}
-
-strong {
-  color: #2d3748;
-  font-weight: 600;
 }
